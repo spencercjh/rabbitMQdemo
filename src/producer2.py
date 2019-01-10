@@ -3,7 +3,7 @@ import pika
 
 # https://www.cnblogs.com/pangguoping/p/5720134.html
 
-def producer():
+def producer2():
     # 生产者
     credentials = pika.PlainCredentials(username='guest', password='guest')
     # 链接rabbit服务器（localhost是本机，如果是其他服务器请修改为ip地址）
@@ -21,7 +21,3 @@ def producer():
     print("开始队列")
     # 缓冲区已经flush而且消息已经确认发送到了RabbitMQ中，关闭链接
     connection.close()
-
-
-if __name__ == '__main__':
-    producer()
