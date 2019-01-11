@@ -20,6 +20,7 @@ def consumer():
         else:
             print(" [other] Received %r" % str(body))
 
+    channel.queue_bind(queue='hello', exchange='message')
     # 告诉rabbit_mq使用callback来接收信息
     channel.basic_consume(callback,
                           queue='hello',
@@ -34,3 +35,7 @@ def consumer():
 
     # 开始接收信息，并进入阻塞状态，队列里有信息才会调用callback进行处理。按ctrl+c退出。
     channel.start_consuming()
+
+
+if __name__ == '__main__':
+    consumer()
